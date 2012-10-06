@@ -1,13 +1,14 @@
 require 'socket'
 require 'terminal-notifier'
+require 'yaml'
 
-$debug = ENV['TEST'] == 'yep'
+$debug = !!ENV['TEST']
+$config = YAML.load_file(File.expand_path('../config.yml', __FILE__))
 
-Socket.tcp('0.0.0.0', 1666) do |sock|
-  sock.puts "123"
-  
-  while message = sock.gets
-    p [:message, message] if $debug
-    TerminalNotifier.notify message, title: "New notification"
-  end
+if $debug
+  $config[:server] = '0.0.0.0'
+  $config[:api_key] = '123'
 end
+
+# require File.expand_path('../lib/customization', __FILE__)
+require File.expand_path('../lib/server', __FILE__)
