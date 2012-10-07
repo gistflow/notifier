@@ -1,6 +1,7 @@
 require 'socket'
 require 'terminal-notifier'
 require 'yaml'
+require 'json'
 
 $debug = !!ENV['TEST']
 $config = YAML.load_file(File.expand_path('../config.yml', __FILE__))
