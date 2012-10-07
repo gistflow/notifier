@@ -6,8 +6,8 @@ begin
       p [:data, data] if $debug
       message = JSON.parse(data)
       TerminalNotifier.notify message[:title], {
-        title: "Gistflow Notifier",
-        open: message[:url]
+        :title => "Gistflow Notifier",
+        :open  => message[:url]
       }
     end
   end
