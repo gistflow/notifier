@@ -24,7 +24,7 @@ launcher = <<-EOF
         <string>com.gistflow.notifierd</string>
         <key>ProgramArguments</key>
         <array>
-                <string>#{app_path}/bin/launch</string>
+                <string>#{app_path.gsub('\ ', ' ')}/bin/launch</string>
         </array>
         <key>KeepAlive</key>
         <true/>
@@ -45,7 +45,7 @@ puts "launcher updated"
 system "rm -rf #{app_path}"
 system "git clone git://github.com/gistflow/notifier.git #{app_path}"
 
-system "bundle install --path=#{app_path}/vendor/bundle"
+system "bundle install --path=#{app_path}/vendor/bundle --binstubs"
 
 puts "code updated"
 

@@ -2,6 +2,8 @@ log_path = File.expand_path('../log', __FILE__)
 $stdout.reopen("#{log_path}/stdout.log", "wb")
 $stderr.reopen("#{log_path}/stderr.log", "wb")
 
+require 'rubygems'
+require 'bundler/setup'
 require 'socket'
 require 'terminal-notifier'
 require 'yaml'
