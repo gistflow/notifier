@@ -1,6 +1,6 @@
 log_path = File.expand_path('../log', __FILE__)
-$stdout.reopen("#{log_path}/stdout.log", "w+")
-$stderr.reopen("#{log_path}/stderr.log", "w+")
+$stdout.reopen("#{log_path}/stdout.log", "wb")
+$stderr.reopen("#{log_path}/stderr.log", "wb")
 
 require 'socket'
 require 'terminal-notifier'
