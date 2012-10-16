@@ -50,13 +50,13 @@
 #   1.to_json => "1"
 #
 
-require File.expand_path('../json/common', __FILE__)
+require 'json/common'
 module JSON
-  require File.expand_path('../json/version', __FILE__)
+  require 'json/version'
 
   begin
-    require File.expand_path('../json/ext', __FILE__)
+    require 'json/ext'
   rescue LoadError
-    require File.expand_path('../json/pure', __FILE__)
+    require 'json/pure'
   end
 end
