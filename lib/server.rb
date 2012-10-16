@@ -1,4 +1,5 @@
 begin
+  $stdout.puts "it works #{Time.now}"
   Socket.tcp($config[:server], 1666) do |sock|
     sock.puts $config[:api_key]
   
@@ -13,6 +14,6 @@ begin
   end
 rescue => e
   puts e.to_s if $debug
-  sleep 1.minute
+  sleep 60
   retry
 end

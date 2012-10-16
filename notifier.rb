@@ -1,11 +1,11 @@
 require 'socket'
-# require 'terminal-notifier'
+require 'terminal-notifier'
 require 'yaml'
 require 'json'
 
 log_path = File.expand_path('../log', __FILE__)
-$stdout.reopen("log_path/stdout.log", "w")
-$stderr.reopen("log_path/stderr.log", "w")
+$stdout.reopen("#{log_path}/stdout.log", "w+")
+$stderr.reopen("#{log_path}/stderr.log", "w+")
 
 $debug = !!ENV['TEST']
 $config = YAML.load_file(File.expand_path('../config.yml', __FILE__))
