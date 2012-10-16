@@ -2,8 +2,11 @@ log_path = File.expand_path('../log', __FILE__)
 $stdout.reopen("#{log_path}/stdout.log", "wb")
 $stderr.reopen("#{log_path}/stderr.log", "wb")
 
-require File.expand_path('../vendor/bundle/ruby/1.9.1/gems/terminal-notifier-1.4.2/lib/terminal-notifier', __FILE__)
-require File.expand_path('../vendor/bundle/ruby/1.9.1/gems/json-1.7.5/lib/json', __FILE__)
+$LOAD_PATH << File.expand_path('../vendor/bundle/ruby/1.9.1/gems/terminal-notifier-1.4.2/lib/', __FILE__)
+$LOAD_PATH << File.expand_path('../vendor/bundle/ruby/1.9.1/gems/json-1.7.5/lib/', __FILE__)
+
+require 'terminal-notifier'
+require 'json'
 require 'socket'
 require 'yaml'
 
