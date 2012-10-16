@@ -45,6 +45,8 @@ puts "launcher updated"
 system "rm -rf #{app_path}"
 system "git clone git://github.com/gistflow/notifier.git #{app_path}"
 
+system "bundle install --path=#{app_path}/vendor/bundle"
+
 puts "code updated"
 
 # start app
