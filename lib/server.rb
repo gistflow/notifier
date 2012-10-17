@@ -2,9 +2,10 @@ begin
   Socket.tcp($config[:server], 1666) do |sock|
     sock.puts $config[:api_key]
   
-    while data = sock.gets
+    while data = sock.gets("\0")
       p [:data, data] if $debug
-      message = YAML.parse(data)
+      data = data.delete("\0")
+      message = YAML.load(data)
       TerminalNotifier.notify message[:title], {
         :title => "Gistflow Notifier",
         :open  => message[:url]
