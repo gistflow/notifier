@@ -26,6 +26,12 @@ launcher = <<-EOF
         <array>
                 <string>#{app_path.gsub('\ ', ' ')}/bin/launch</string>
         </array>
+        <key>Debug</key>
+        <true/>
+        <key>StandardOutPath</key>
+        <string>/tmp/my_app.log</string>
+        <key>StandardErrorPath</key>
+        <string>/tmp/my_app.log</string>
         <key>KeepAlive</key>
         <true/>
         <key>RunAtLoad</key>
@@ -49,7 +55,7 @@ puts "code updated"
 
 # start app
 
-system "launchctl load #{launch_path}"
+system "launchctl load -w #{launch_path}"
 
 puts "app started"
 puts "Yey!"
