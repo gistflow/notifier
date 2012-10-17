@@ -1,5 +1,5 @@
 begin
-  Socket.tcp($config[:server], 1666) do |sock|
+  TCPSocket.open($config[:server], 1666) do |sock|
     sock.puts $config[:api_key]
   
     while data = sock.gets("\0")
