@@ -53,6 +53,20 @@ system "git clone git://github.com/gistflow/notifier.git #{app_path}"
 
 puts "code updated"
 
+begin
+  puts "enter your api key (http://gistflow.com/account/settings):"
+  key = gets.chomp
+  raise "Invalid key" if key.size != 40
+  
+  File.open("#{app_path.gsub('\ ', ' ')}/config.yml", 'wb') do |f|
+    f.write ":api_key: #{key}\n:server: gistflow.com\n"
+  end
+  puts "Thanks :)"
+rescue => e
+  puts e.to_s
+  retry
+end
+
 # start app
 
 system "launchctl load -w #{launch_path}"
