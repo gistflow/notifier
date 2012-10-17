@@ -1,5 +1,4 @@
 begin
-  $stdout.puts "it works #{Time.now}"
   Socket.tcp($config[:server], 1666) do |sock|
     sock.puts $config[:api_key]
   
