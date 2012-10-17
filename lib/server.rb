@@ -5,7 +5,7 @@ begin
   
     while data = sock.gets
       p [:data, data] if $debug
-      message = JSON.parse(data)
+      message = YAML.parse(data)
       TerminalNotifier.notify message[:title], {
         :title => "Gistflow Notifier",
         :open  => message[:url]

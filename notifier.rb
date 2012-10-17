@@ -6,7 +6,7 @@ $LOAD_PATH << File.expand_path('../vendor/bundle/ruby/1.9.1/gems/terminal-notifi
 $LOAD_PATH << File.expand_path('../vendor/bundle/ruby/1.9.1/gems/json-1.7.5/lib/', __FILE__)
 
 require 'terminal-notifier'
-require 'json'
+require 'yaml'
 require 'socket'
 require 'yaml'
 
